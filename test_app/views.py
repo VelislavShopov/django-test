@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import ListView, FormView, CreateView
+from django.views.generic import ListView, FormView, CreateView, DetailView
 
 from test_app.forms import UserForm
 from test_app.models import User
@@ -24,3 +24,7 @@ class UserCreateView(CreateView):
     form_class = UserForm
     template_name = 'test_app/users_form.html'
 
+class UserDetailView(DetailView):
+    model = User
+    template_name = 'test_app/user_detail.html'
+    context_object_name = 'user'

@@ -11,6 +11,7 @@
                 User Info
             </li>
             <ul>
+                <li><a href="{% url 'user_detail' pk=user.pk%}">More details</a></li>
                 <li>{{ user.firstName }}</li>
                 <li>{{ user.lastName }}</li>
                 <li>{{ user.email }}</li>
