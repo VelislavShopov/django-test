@@ -19,10 +19,20 @@ class UserListView(ListView):
     model = User
     template_name = 'test_app/users.html'
 
-class UserCreateView(CreateView):
-    model = User
+# class UserCreateView(CreateView):
+#     model = User
+#     form_class = UserForm
+#     template_name = 'test_app/users_form.html'
+
+class UserFormView(FormView):
     form_class = UserForm
     template_name = 'test_app/users_form.html'
+    success_url = '/help/users/'
+
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 
 class UserDetailView(DetailView):
     model = User
